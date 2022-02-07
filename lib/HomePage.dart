@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'PageRoom.dart';
-
+import './screens/launcher.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage();
@@ -82,8 +83,7 @@ class MyHomePage extends StatelessWidget {
                   child: const Image(
                     width: 300,
                     height: 150,
-                    image: NetworkImage(
-                        'https://images.iphonemod.net/wp-content/uploads/2017/07/IndoorGoogleMaps-Cover-2.jpg'),
+                    image: AssetImage('Images/weather.jpg'),
                   )),
             ),
           ),
@@ -108,21 +108,42 @@ class MyHomePage extends StatelessWidget {
                   debugPrint('Card tapped.');
                 },
                 child: FlatButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => PageRoom()));
-                    },
-                    child: const Image(
-                      width: 300,
-                      height: 150,
-                      image: NetworkImage(
-                          'https://www.itbtthai.com/wp-content/uploads/2018/11/data-center.jpg'),
-                    )),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/t');
+                  },
+                  child: const Image(
+                    width: 300,
+                    height: 150,
+                    image: AssetImage('images/server_room.jpg'),
+                  ),
+                ),
               ),
             ),
           ),
         ],
       ),
+      // bottomNavigationBar: Launcher(),
+    );
+  }
+
+  BottomNavigationBar buildBottombar() {
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(FontAwesomeIcons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(FontAwesomeIcons.infoCircle),
+          label: 'About',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(FontAwesomeIcons.userAlt),
+          label: 'Profile',
+        ),
+      ],
+      // currentIndex: _selectedIndex,
+      // onTap: _onItemTapped,
     );
   }
 }

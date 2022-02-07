@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_settings_screens/flutter_settings_screens.dart';
+
 class MyAlert1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ showAlertDialog(BuildContext context) {
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
     title: Text("ตั้งค่าแจ้งเตือนอุณหภูมิ"),
-    content: Text("This is an alert message."),
+    content: Setting(context),
     actions: [
       okButton,
     ],
@@ -46,3 +48,17 @@ showAlertDialog(BuildContext context) {
     },
   );
 }
+
+Row Setting(BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: <Widget>[
+      Text('Open'),
+      Switch(
+          activeColor: Theme.of(context).accentColor, onChanged: (newVal) {}),
+      Text('Open'),
+    ],
+  );
+}
+
+void setState(Null Function() param0) {}
